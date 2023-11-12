@@ -21,8 +21,10 @@
             <h3>Input or type the promotion: </h3>
             <textarea name=addedPromotion></textarea><br>
             <button type="submit" name="submit" value="submit">Add</button><br><br>
-            <a href="promotion.php"> View Promotion </a>
+            <a href="admin_promotion.php">
+            <button type="button">Back</button>
         </form>
+    
         
     </body>
 

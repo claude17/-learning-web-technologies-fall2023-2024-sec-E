@@ -1,6 +1,6 @@
 <?php
 
-require_once('mydb.php');
+require_once('../model/mydb.php');
 $con = getConnection();
 $query = "select * from orderhistory";
 $result = mysqli_query($con,$query);

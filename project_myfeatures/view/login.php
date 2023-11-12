@@ -8,7 +8,7 @@
     <title>Login</title>
 </head>
 <body>
-        <form method="post" action="loginCheck.php" enctype="">
+        <form method="post" action="../controller/loginCheck.php" enctype="">
             <fieldset>
                 <legend>Signin</legend>
                 Username: <input type="text" name="username" value="" /> <br>

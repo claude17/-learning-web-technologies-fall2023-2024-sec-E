@@ -1,5 +1,5 @@
 <?php
-    require_once('userModel.php');
+    require_once('../model/faqModel.php');
     $faqs=getFaq();
 ?>
 
