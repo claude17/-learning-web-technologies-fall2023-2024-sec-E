@@ -1,7 +1,8 @@
 <?php
     //session_start();
-    //require_once('userModel.php');
-    require_once('mydb.php');
+    require_once('userModel.php');
+    
+    //require_once('mydb.php');
     
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -12,7 +13,13 @@
     $gender = $_POST['gender'];
     $phone = $_POST['phone'];
 
-    $con = getConnection();
+    if(signup($firstName, $lastName, $userName, $email, $password, $gender, $phone))
+    {
+        echo "you have signed up successfully";
+    }
+    
+
+    /*$con = getConnection();
     $sql="INSERT INTO registration (firstName, lastName, userName, email, password, gender, phone) VALUES (?, ?, ?, ?, ?, ?, ?)";
     //$sql = "INSERT into registration(firstName,lastName,userName,email,password,gender,phone) VALUES('{$firstName}','{$lastName}','{$userName}','{$email}','{$password}','{$gender}','{$phone}'";
     $stmt = mysqli_prepare($con, $sql);
@@ -23,7 +30,7 @@
         echo "User registered successfully!";
     } else {
         echo "Error: ";
-    }
+    }*/
     
 
 ?>

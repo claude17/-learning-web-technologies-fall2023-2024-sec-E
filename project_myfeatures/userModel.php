@@ -14,19 +14,18 @@
         }
     }*/
 
-    /*function signup($firstName,$lastName,$userName,$email,$password,$gender,$phone)
+    function signup($firstName, $lastName, $userName, $email, $password, $gender, $phone)
     {
         $con = getConnection();
-        $sql = "INSERT into registration(firstName,lastName,userName,email,password,gender,phone) VALUES('{$firstName}','{$lastName}','{$userName}','{$email}','{$password}','{$gender}','{$phone}'";
-        $result = mysqli_query($con, $sql);
-        $success=$result;
-        if($success)
-        {
-            echo "User registered successfully!";
+        $sql = "INSERT INTO registration (firstName, lastName, userName, email, password, gender, phone)
+        VALUES ('$firstName', '$lastName', '$userName', '$email', '$password', '$gender','$phone')";
+
+        if (mysqli_query($con, $sql)) {
+            return true;
         } else {
-            echo "Error: ";
+            return false;
         }
-    }*/
+    }
 
     function getPromotion(){
         $con = getConnection();
@@ -40,3 +39,31 @@
         
         return $promotions;
     }
+
+    function addPromotion($addedPromotion)
+    {
+        $con = getConnection();
+        $sql = "INSERT INTO promotion (promotion) VALUES ('$addedPromotion')";
+
+        if (mysqli_query($con, $sql)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function getFaq(){
+        $con = getConnection();
+        $sql = "select * from faq";
+        $result = mysqli_query($con, $sql);
+        $faqs = [];
+        
+        while($faq = mysqli_fetch_assoc($result)){
+            array_push($faqs, $faq);
+        }
+        
+        return $faqs;
+    }
+
+
+?>
