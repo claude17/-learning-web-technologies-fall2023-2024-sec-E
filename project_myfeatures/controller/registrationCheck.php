@@ -12,21 +12,20 @@
     $confirmPassword = $_POST['confirm_password'];
     $gender = $_POST['gender'];
     $phone = $_POST['phone'];
+    $userType="customer";
 
    
     if($firstName == "" || $lastName == "" || $userName == "" || $email == "" || $password == "" || $gender == "" || $phone == ""){
         echo "null username or password or email!";
     }else{
-        $user = ['firstName'=> $firstName, 'lastName'=> $lastName, 'userName'=> $userName, 'email'=>$email, 'password'=> $password, 'gender'=> $gender, 'phone'=> $phone];
+        $user = ['firstName'=> $firstName, 'lastName'=> $lastName, 'userName'=> $userName, 'email'=>$email, 'password'=> $password, 'gender'=> $gender, 'phone'=> $phone, 'userType'=> $userType];
         $status = signup($user);
         //$_SESSION['user'] = $user;
         //header('location: ../view/login.html');
         if ($status){
             echo "you have signed up successfully";
-            $_SESSION['flag'] = 'true';
-            ;
-        }else{
-            echo "invalid user!";
+            //$_SESSION['flag'] = 'true';
+            
         }
     }
 ?>

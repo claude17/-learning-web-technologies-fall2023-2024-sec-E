@@ -1,7 +1,7 @@
 <?php
 
 //require_once('mydb.php');
-require_once('../model/userModel.php');
+require_once('../model/promotionModel.php');
 $promotions=getPromotion();
 ?>
 <html>
@@ -18,7 +18,7 @@ $promotions=getPromotion();
                 <?php for($i=0;$i<count($promotions);$i++)
                 {?>
                 <tr>
-                    <th><?=$promotions[$i]['promotion_id']?></th>
+                    
                     <th><?=$promotions[$i]['promotion']?></th>
         <?php   }?>
                 </tr>

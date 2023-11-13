@@ -1,5 +1,5 @@
 <?php
-    require_once('../model/userModel.php');
+    require_once('../model/promotionModel.php');
     //$addedPromotion = $_POST['addedPromotion'];
     if(isset($_POST['addedPromotion']))
     {

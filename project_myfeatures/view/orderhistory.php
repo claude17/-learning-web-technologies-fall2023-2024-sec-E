@@ -1,9 +1,10 @@
 <?php
 
-require_once('../model/mydb.php');
-$con = getConnection();
-$query = "select * from orderhistory";
-$result = mysqli_query($con,$query);
+session_start();
+require_once('../model/orderModel.php');
+$username=$_SESSION['username'];
+$orders=getReview($username)
+
 
 ?>
 <html>
@@ -15,9 +16,10 @@ $result = mysqli_query($con,$query);
             <fieldset>
             <legend>Past Order</legend>
             <h1>Your past orders</h1>
-            <table border="1" width=100%>
+            <table border="1" width=50%>
                 <tr>
                     <th>id</th>
+                    <th>username</th>
                     <th>food name</th>
                     <th>food quantity</th>
                     <th>price</th>
@@ -25,24 +27,21 @@ $result = mysqli_query($con,$query);
                     <th>date</th>
                     <th>adress</th>
                 </tr>
+                <?php for($i=0;$i<count($orders);$i++)
+                {?>
                 <tr>
-                    <?php
-                        while($row=mysqli_fetch_assoc($result))
-                        {
-                    ?>
-                            <td><?php echo $row['id']; ?></td>
-                            <td><?php echo $row['food name']; ?></td>
-                            <td><?php echo $row['food quantity']; ?></td>
-                            <td><?php echo $row['price']; ?></td>
-                            <td><?php echo $row['amount paid']; ?></td>
-                            <td><?php echo $row['date']; ?></td>
-                            <td><?php echo $row['adress']; ?></td>
+                    
+                    <td><?=$orders[$i]['id']?></td>
+                    <td><?=$orders[$i]['username']?></td>
+                    <td><?=$orders[$i]['food name']?></td>
+                    <td><?=$orders[$i]['food quantity']?></td>
+                    <td><?=$orders[$i]['price']?></td>
+                    <td><?=$orders[$i]['amount paid']?></td>
+                    <td><?=$orders[$i]['date']?></td>
+                    <td><?=$orders[$i]['adress']?></td>
+
+        <?php   }?>
                 </tr>
-                <?php
-                        }
-                    ?>
-                </tr>
-            
             </table>
             </fieldset>
         </form>

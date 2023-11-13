@@ -1,7 +1,7 @@
 <?php
 
 //require_once('mydb.php');
-require_once('../model/userModel.php');
+require_once('../model/promotionModel.php');
 $promotions=getPromotion();
 ?>
 <html>

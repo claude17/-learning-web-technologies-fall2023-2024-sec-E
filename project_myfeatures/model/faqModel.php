@@ -24,4 +24,16 @@ function getFaq(){
             return false;
         }
     }
+
+    function deleteFaq($faqId)
+    {
+        $con = getConnection();
+        $sql = "DELETE FROM faq WHERE faq_id = $faqId";
+
+        if (mysqli_query($con, $sql)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 ?>

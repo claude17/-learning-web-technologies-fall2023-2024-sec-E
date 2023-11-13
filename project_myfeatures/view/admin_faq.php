@@ -24,7 +24,7 @@
     Write Answer: <input type="text" name="answer" value="" />
     <button type="submit" name="submit" value="submit">Add</button>
     <h3>delete faq</h3>
-    <br>write corresponding question-id to delete: <input type="text" name="faq_id" value="" />
+    write corresponding question-id to delete: <input type="text" name="faq_id" value="" />
     <button type="submit" name="submit" value="submit">Delete</button>
     
 
