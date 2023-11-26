@@ -25,18 +25,21 @@ if(isset($_POST['search']))
 <html>
     <head>
         <title>Past Order</title>
+        <script src="../folder/script.js"></script>
     </head>
     <body>
-        <form action="admin_orderhistory.php" method="post">
+        <form id="sr" action="admin_orderhistory.php" method="post">
             <fieldset>
             <legend>Past Order</legend>
-            username: <input type="text" name="search" value="">
-            <button type="submit" name="submit" value="submit">search</button>
+            username: <input type="text" id="search" name="search" value="">
+            <input type="button" name="search" value="Search" onclick="ajax()"/>
+            <!-- <input type="submit" name="submit" value="search"> -->
             <a href="admin_orderhistory.php">
             <button type="button">show all</button><br></a>
+            <h2 id="h2"></h2>
             
             <h1>All orders</h1>
-            <table border="1" width=50%>
+            <table border="1" width=50% >
                 <tr>
                     <th>username</th>
                     <th>food name</th>

@@ -1,31 +1,51 @@
 <?php
     require_once('../model/reviewModel.php');
     include_once('../controller/sessionCheck.php');
+
+    if (isset($_POST['reviewfor'],$_POST['reviewtext'],$_POST['ratings'])) 
+    {
+        $username=$_SESSION['username'];
+        $reviewfor=$_POST['reviewfor'];
+        $reviewtext=$_POST['reviewtext'];
+        $ratings=$_POST['ratings'];
+        if($reviewfor == "" || $reviewtext == "" || $ratings == "")
+        {
+            echo "null value inserted";
+    
+        }
+        else{
+            addReview($username,$reviewfor,$reviewtext,$ratings);
+            header('location: review.php');
+            exit();
+        }
+    }
     $reviews=getReview();
 ?>
 
 <html>
     <head>
         <title>review</title>
+        <script src="../folder/script.js"></script>
     </head>
     <body>
-        <form action="review.php" method="post">
+        <form action="review.php" method="post" onsubmit="return validation()">
             <fieldset>
                 <legend>Review</legend>
                 review for:
-                <select name="reviewfor">
+                <select id="reviewtype" name="reviewfor"> 
                     <option value="food">Food</option>
                     <option value="retaurant">Restaurant</option>
                 </select>
-                <br><br>your review: <textarea name="reviewtext"  cols="20" rows="2"></textarea>
-                <br>your ratings: <select name="ratings">
+                <br><br>your review: <textarea id="reviewtext" name="reviewtext"  cols="20" rows="2"></textarea>
+                <br>your ratings: <select id="ratings" name="ratings">
                                     <option value="1">1 star</option>
                                     <option value="2">2 star</option>
                                     <option value="3">3 star</option>
                                     <option value="4">4 star</option>
                                     <option value="5">5 star</option>
                                 </select>
-                <br><input type="submit" name="submit" value="Submit" />
+                                <h2 id="h1"></h2>
+                <br><input type="submit" name="submit" value="Submit" >
                 
             </fieldset>
             <br>
@@ -59,22 +79,22 @@
 </html>
 <?php
     
-    require_once('../model/reviewModel.php');
-    if (isset($_POST['reviewfor'],$_POST['reviewtext'],$_POST['ratings'])) 
-    {
-        $username=$_SESSION['username'];
-        $reviewfor=$_POST['reviewfor'];
-        $reviewtext=$_POST['reviewtext'];
-        $ratings=$_POST['ratings'];
-        if($reviewfor == "" || $reviewtext == "" || $ratings == "")
-        {
-            echo "null value inserted";
+    //require_once('../model/reviewModel.php');
+    // if (isset($_POST['reviewfor'],$_POST['reviewtext'],$_POST['ratings'])) 
+    // {
+    //     $username=$_SESSION['username'];
+    //     $reviewfor=$_POST['reviewfor'];
+    //     $reviewtext=$_POST['reviewtext'];
+    //     $ratings=$_POST['ratings'];
+    //     if($reviewfor == "" || $reviewtext == "" || $ratings == "")
+    //     {
+    //         echo "null value inserted";
     
-        }
-        else{
-            addReview($username,$reviewfor,$reviewtext,$ratings);
-            header('location: review.php');
-            
-        }
-    }
+    //     }
+    //     else{
+    //         addReview($username,$reviewfor,$reviewtext,$ratings);
+    //         header('location: review.php');
+    //         exit();
+    //     }
+    // }
 ?>
