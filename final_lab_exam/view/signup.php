@@ -15,8 +15,8 @@
             Password <br>
             <input type="password" name="password" value="" /> <br><br>
             <legend> Gender </legend>
-                <input type="radio" name="userType" value="Buyer" /> Buyer
-                <input type="radio" name="userType" value="Seller" /> Seller
+                <input type="radio" name="userType" value="buyer" /> Buyer
+                <input type="radio" name="userType" value="seller" /> Seller
                 
                 <br><br>
             

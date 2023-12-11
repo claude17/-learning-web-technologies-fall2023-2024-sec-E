@@ -2,7 +2,7 @@
     require_once('../model/userModel.php');
     include_once('../controller/sessionCheck.php');
     $username=$_SESSION['username'];
-    $users=getOrderhistory($username);
+    $users=viewProfile($username);
 ?>
 <fieldset>
     <legend>PROFILE</legend>
