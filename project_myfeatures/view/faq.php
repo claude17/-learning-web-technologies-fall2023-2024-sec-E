@@ -7,6 +7,7 @@
 <html>
 <head>
     <title>FAQ</title>
+    <link rel="stylesheet" type="text/css" href="../css/faq.css">
 </head>
 <body>
 

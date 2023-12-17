@@ -7,6 +7,8 @@
 <html>
 <head>
     <title>about us</title>
+    <link rel="stylesheet" type="text/css" href="../css/aboutus.css">
+    
 </head>
 <body>
 

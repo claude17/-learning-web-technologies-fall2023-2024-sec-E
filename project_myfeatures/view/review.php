@@ -8,6 +8,7 @@
         $reviewfor=$_POST['reviewfor'];
         $reviewtext=$_POST['reviewtext'];
         $ratings=$_POST['ratings'];
+        
         if($reviewfor == "" || $reviewtext == "" || $ratings == "")
         {
             echo "null value inserted";
@@ -15,8 +16,8 @@
         }
         else{
             addReview($username,$reviewfor,$reviewtext,$ratings);
-            header('location: review.php');
-            exit();
+            // header('location: review.php');
+            // exit();
         }
     }
     $reviews=getReview();
@@ -25,14 +26,15 @@
 <html>
     <head>
         <title>review</title>
-        <script src="../folder/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/review.css">
+        <script src="../js/review.js"></script>
     </head>
     <body>
-        <form action="review.php" method="post" onsubmit="return validation()">
+        <form action="review.php" method="post" id="fullform">
             <fieldset>
                 <legend>Review</legend>
                 review for:
-                <select id="reviewtype" name="reviewfor"> 
+                <select id="reviewfor" name="reviewfor"> 
                     <option value="food">Food</option>
                     <option value="retaurant">Restaurant</option>
                 </select>
@@ -45,13 +47,14 @@
                                     <option value="5">5 star</option>
                                 </select>
                                 <h2 id="h1"></h2>
-                <br><input type="submit" name="submit" value="Submit" >
+                <br><input type="button" name="submit" value="Submit" onclick="ajax()"/>
                 
             </fieldset>
             <br>
-            <a href="user_dashboard.php">
-            <br><button type="button">Back</button><br></a>
+          
             <br>
+
+            <p><h2>All Reviews</h2></p>
             <table border="1" width=50%>
     
                 <tr>

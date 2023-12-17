@@ -1,6 +1,23 @@
 <?php
     require_once('../model/promotionModel.php');
     include_once('../controller/sessionCheck.php');
+    if(isset($_POST['promotion_id']))
+    {
+        
+        $promotionId=$_POST['promotion_id'];
+        if($promotionId == "")
+        {
+            echo "null value inserted";
+    
+        }
+        else{
+            deletePromotion($promotionId);
+            header('location: admin_promotion.php');
+            
+        }
+    }
+
+
     $promotions=getPromotion();
    
 ?>
@@ -8,6 +25,7 @@
 <html>
     <head>
         <title>Promotion</title>
+        <link rel="stylesheet" type="text/css" href="../css/deletepromotion.css">
     </head>
     <body>
         <form action="deletepromotion.php" method="post">
@@ -36,23 +54,5 @@
 </html>
 
 <?php
-    require_once('../model/promotionModel.php');
-
-    if(isset($_POST['promotion_id']))
-    {
-        
-        $promotionId=$_POST['promotion_id'];
-        if($promotionId == "")
-        {
-            echo "null value inserted";
-    
-        }
-        else{
-            deletePromotion($promotionId);
-            header('location: admin_promotion.php');
-            
-        }
-    }
-
 
 ?>

@@ -10,6 +10,7 @@ $orders=getOrderhistory($username);
 <html>
     <head>
         <title>Past Order</title>
+        <link rel="stylesheet" type="text/css" href="../css/orderhistory.css">
     </head>
     <body>
         <form action="">

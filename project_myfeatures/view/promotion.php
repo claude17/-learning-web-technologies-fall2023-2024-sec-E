@@ -9,6 +9,7 @@ $promotions=getPromotion();
 <html>
     <head>
         <title>Promotion</title>
+        <link rel="stylesheet" type="text/css" href="../css/promotion.css">
     </head>
     <body>
         <form action="">
